@@ -13,7 +13,7 @@ To run the apps:
 * xlwings:
 
   Open Excel, then click the `Run` button. If you don't want to use your default Python installation (e.g. because
-  your using a virtualenv or a conda environment, then you will need to point the Python interpreter to this
+  your using a virtualenv or a conda environment), then you will need to point the Python interpreter to this
   interpreter by changing `PYTHON_WIN` or `PYTHON_MAC` in the xlwings VBA settings, respectively.
   
 * Flask web app:
