@@ -1,0 +1,14 @@
+label {
+  margin-bottom: 0;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+
+input {
+  text-align: right;
+  padding-right: 0 !important;
+}
+
+.row {
+  margin-bottom: 2px;
+}
