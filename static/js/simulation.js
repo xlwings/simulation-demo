@@ -2,7 +2,7 @@ $(function() {
     $('#run-button').click(function() {
         $('#run-button').prop('disabled', true);
         $.ajax({
-            url: '/run-simulation',
+            url: 'run-simulation',
             type: 'POST',
             data: JSON.stringify({
                 num_simulations: $('#num_simulations').val(),
