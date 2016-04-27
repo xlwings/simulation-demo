@@ -1,7 +1,6 @@
 from __future__ import division
 from flask import Flask, render_template, request
 import json
-import plotly
 from simulation import simulate
 import numpy as np
 
@@ -29,15 +28,15 @@ def run_simulation():
 
     percentiles, sample_path = simulate(num_timesteps, num_simulations, starting_price, mu, vol, dt, perc_selection)
 
-    x = np.round(np.linspace(0, time_horizon, num_timesteps + 1), 2)
+    x = np.round(np.linspace(0, time_horizon, num_timesteps + 1), 2).tolist()
 
     data = [{'x': x, 'y': percentiles[:, i].tolist(),
              'name': '{0}th Percentile'.format(perc_selection[i]) if perc_selection[i] != 50 else 'Median'}
             for i in range(percentiles.shape[1])
             ]
-    data.append({'x': x, 'y': sample_path.squeeze(), 'name': 'Sample Path'})
+    data.append({'x': x, 'y': sample_path.squeeze().tolist(), 'name': 'Sample Path'})
 
-    return json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+    return json.dumps(data)
 
 if __name__ == '__main__':
     app.run(port=5002, debug=True)
